@@ -1,0 +1,65 @@
+/* Styling for the entire header component */
+.header {
+  position: sticky; /* Sticks to the top when scrolling */
+  top: 0;
+  width: 100%;
+  z-index: 100; /* Ensure it stays above other elements */
+  display: flex; /* Arrange child elements in a row */
+  justify-content: space-between; /* Spread content to the sides */
+  align-items: center; /* Vertically align items */
+  padding: 20px;
+  transition: background-color 0.5s ease; /* Smooth transition for scroll effect */
+  background-color: transparent; /* Transparent background by default */
+}
+
+/* Black background when the header is scrolled */
+.header--black {
+  background-color: black;
+}
+
+/* Styling for the Netflix logo */
+.header__logo {
+  height: 35px; /* Resize logo */
+  cursor: pointer; /* Indicate that the logo is clickable */
+}
+
+/* Navigation menu styling */
+.header__nav ul {
+  display: flex; /* Align links horizontally */
+  list-style: none; /* Remove default list styling */
+  gap: 20px; /* Add space between links */
+  margin: 0;
+  padding: 0;
+}
+
+/* Individual link styling */
+.header__nav a {
+  color: #e5e5e5; /* Light gray color */
+  text-decoration: none; /* Remove underline */
+  font-weight: 500; /* Slightly bold font */
+}
+
+/* Change link color on hover */
+.header__nav a:hover {
+  color: #ffffff; /* White color */
+}
+
+/* Styling for the right-side icons */
+.header__icons {
+  display: flex; /* Align icons in a row */
+  align-items: center; /* Vertically center align */
+  gap: 15px; /* Add space between icons */
+}
+
+/* Icon-specific styling */
+.header__icon {
+  color: #e5e5e5; /* Light gray color */
+  cursor: pointer; /* Indicate clickability */
+  font-size: 30px; /* Standard icon size */
+  transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Change icon color on hover */
+.header__icon:hover {
+  color: #ffffff; /* White color */
+}

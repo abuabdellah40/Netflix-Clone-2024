@@ -1,0 +1,37 @@
+/* Styling for the entire footer container */
+.footer {
+  background-color: #111; /* Dark background */
+  color: #999; /* Light gray text */
+  padding: 20px; /* Space inside the footer */
+  text-align: center; /* Center align text */
+  width: 100%; /* Stretch across the entire width */
+}
+
+/* Styling for the list of footer links */
+.footer__links ul {
+  list-style: none; /* Remove default list styling */
+  padding: 0;
+  display: flex; /* Align links horizontally */
+  justify-content: center; /* Center the links */
+  gap: 15px; /* Add space between links */
+  margin-bottom: 10px;
+}
+
+/* Individual footer link styling */
+.footer__links a {
+  color: #999; /* Light gray text */
+  text-decoration: none; /* Remove underline */
+  font-size: 14px; /* Smaller font size */
+}
+
+/* Add underline on hover */
+.footer__links a:hover {
+  text-decoration: underline;
+  color: #fff; /* White color on hover */
+}
+
+/* Footer message styling */
+.footer__text {
+  font-size: 12px; /* Small text size */
+  margin-top: 10px;
+}
