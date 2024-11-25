@@ -7,15 +7,21 @@ import SearchIcon from "@mui/icons-material/Search"; // Icon for the search feat
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone"; // Icon for notifications
 import AccountBoxIcon from "@mui/icons-material/AccountBox"; // Icon for account/profile
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown"; // Icon for dropdown menu
+import MenuIcon from "@mui/icons-material/Menu"; // For the hamburger menu
+import CloseIcon from "@mui/icons-material/Close"; // For closing the menu
 
-// The Header component creates the top navigation bar of the application
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false); // Tracks if the user has scrolled
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State to toggle menu visibility
 
   // Effect to listen to scroll events and update the header's background
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50); // Change background if user scrolls 50px or more
+      if (window.scrollY > 50) {
+        setIsScrolled(true); // Turn background black
+      } else {
+        setIsScrolled(false); // Keep background transparent
+      }
     };
 
     window.addEventListener("scroll", handleScroll); // Attach scroll event listener
@@ -23,16 +29,28 @@ function Header() {
   }, []);
 
   return (
-    <header className={`header ${isScrolled ? "header--black" : ""}`}>
-      {/* Netflix logo on the top left */}
+    <header
+      className={`header ${
+        isScrolled ? "header--sticky" : "header--absolute"
+      } ${isScrolled ? "header--black" : "header--transparent"}`}
+    >
+      {/* Menu toggle button for mobile */}
+      <div
+        className="header__menu-icon"
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+      >
+        {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
+      </div>
+
+      {/* Netflix logo */}
       <img
         src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
         alt="Netflix Logo"
         className="header__logo"
       />
 
-      {/* Navigation links in the center */}
-      <nav className="header__nav">
+      {/* Navigation links */}
+      <nav className={`header__nav ${isMenuOpen ? "header__nav--open" : ""}`}>
         <ul>
           <li>
             <a href="#home">Home</a>
@@ -52,7 +70,7 @@ function Header() {
         </ul>
       </nav>
 
-      {/* Material UI icons for actions on the top right */}
+      {/* Right-side icons */}
       <div className="header__icons">
         <SearchIcon className="header__icon" /> {/* Search functionality */}
         <NotificationsNoneIcon className="header__icon" />{" "}
@@ -65,4 +83,4 @@ function Header() {
   );
 }
 
-export default Header; // Make the Header component reusable in other parts of the app
+export default Header;

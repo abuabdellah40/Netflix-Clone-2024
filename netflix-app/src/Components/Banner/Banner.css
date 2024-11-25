@@ -1,0 +1,120 @@
+/* Styling for the banner container */
+/* .banner {
+  position: relative;
+  color: white;
+  object-fit: contain; 
+  height: 448px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px 30px;
+  width: 100vw; /* Match the viewport width *
+  overflow: hidden;  Prevent horizontal scrolling 
+} 
+*/
+.banner {
+  position: relative;
+  color: white;
+  height: 530px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  overflow: hidden; /* Prevent horizontal scrolling */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px 30px;
+  object-fit: contain;
+}
+
+body {
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+/* Banner title styling */
+.banner__title {
+  font-size: 3rem; /* Large title for desktop screens */
+  font-weight: 800; /* Bold font */
+  margin-bottom: 20px; /* Space below the title */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Subtle text shadow for readability */
+}
+
+/* Styling for the buttons in the banner */
+.banner__buttons {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+  flex-wrap: wrap;
+}
+
+/* Individual button styling */
+.banner__button {
+  background-color: rgba(51, 51, 51, 0.5); /* Semi-transparent background */
+  color: white;
+  font-weight: 700; /* Bold text */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth hover effect */
+  font-size: 1rem;
+  flex: 0.125;
+}
+
+/* Button hover effect */
+.banner__button:hover {
+  background-color: #e6e6e6; /* Light background */
+  color: black; /* Black text */
+  transform: scale(1.05); /* Slight scaling effect */
+}
+
+/* Description styling */
+.banner__description {
+  font-size: 1.2rem; /* Slightly smaller than the title */
+  line-height: 1.6; /* Good line spacing for readability */
+  max-width: 60%; /* Limit the width for readability */
+  height: 80px; /* Fixed height with ellipsis */
+  overflow: hidden; /* Hide overflow text */
+  text-overflow: ellipsis; /* Add "..." for overflowing text */
+  white-space: nowrap;
+  margin-top: 10px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Subtle text shadow */
+}
+
+/* Gradient fade effect at the bottom of the banner */
+.banner--fadeBottom {
+  height: 7rem;
+  background-image: linear-gradient(
+    180deg,
+    transparent,
+    rgba(37, 37, 37, 0.61),
+    #111
+  );
+  position: absolute;
+  bottom: 0;
+  left: 0; /* Start from the left edge */
+  width: 100%; /* Match viewport width */
+}
+
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .banner {
+    height: 400px; /* Adjust banner height for smaller screens */
+    padding: 15px 20px;
+  }
+
+  .banner__title {
+    font-size: 2rem; /* Smaller title for mobile screens */
+    margin-bottom: 15px;
+  }
+
+  .banner__description {
+    font-size: 1rem; /* Smaller description text */
+    max-width: 80%; /* Wider max width for smaller screens */
+  }
+
+  .banner__button {
+    padding: 8px 16px; /* Adjust button padding for smaller screens */
+    font-size: 0.9rem; /* Smaller text size for buttons */
+  }
+}

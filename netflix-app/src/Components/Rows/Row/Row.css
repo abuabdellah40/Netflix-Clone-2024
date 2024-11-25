@@ -1,0 +1,89 @@
+/* Container for each row */
+.row {
+  margin-left: 20px;
+  margin-bottom: 30px;
+  color: white;
+}
+
+/* Title of the row */
+.row__title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Posters container */
+.row__posters {
+  display: flex;
+  overflow-x: scroll; /* Enable horizontal scrolling */
+  overflow-y: hidden;
+  padding: 10px 0;
+  scroll-behavior: smooth;
+  gap: 10px;
+}
+
+/* Remove scrollbar */
+.row__posters::-webkit-scrollbar {
+  display: none;
+}
+
+/* Style for individual movie posters */
+.row__poster {
+  max-height: 120px;
+  object-fit: contain;
+  transition: transform 0.2s;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.row__poster:hover {
+  transform: scale(1.08);
+  opacity: 1;
+}
+
+.row__poster--large {
+  max-height: 250px;
+}
+
+.row__trailer {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.row__trailer button {
+  background-color: #e50914;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.row__trailer button:hover {
+  background-color: #f40612;
+}
+
+/* YouTube player styling */
+.row iframe {
+  margin-top: 20px;
+  border: none;
+  border-radius: 8px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .row__poster {
+    max-height: 100px;
+  }
+
+  .row__poster--large {
+    max-height: 200px;
+  }
+
+  .row__title {
+    font-size: 1.2rem;
+  }
+}

@@ -1,12 +1,10 @@
-// Importing React and the associated styles for the footer
 import React from "react";
 import "./Footer.css";
+import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 
-// The Footer component creates the bottom section with links and a footer message
 function Footer() {
   return (
     <footer className="footer">
-      {/* List of footer links */}
       <div className="footer__links">
         <ul>
           <li>
@@ -30,12 +28,37 @@ function Footer() {
         </ul>
       </div>
 
-      {/* Footer message */}
+      {/* Social Media Icons */}
+      <div className="footer__socials">
+        <a
+          href="https://www.facebook.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaFacebookF className="footer__icon" />
+        </a>
+        <a
+          href="https://www.instagram.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaInstagram className="footer__icon" />
+        </a>
+        <a
+          href="https://www.youtube.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaYoutube className="footer__icon" />
+        </a>
+      </div>
+
       <p className="footer__text">
-        Netflix Clone — Built for learning purposes.
+        Netflix Clone — Built - By - developer Fuad Tafese - for learning
+        purposes.
       </p>
     </footer>
   );
 }
 
-export default Footer; // Make the Footer component reusable in other parts of the app
+export default Footer;

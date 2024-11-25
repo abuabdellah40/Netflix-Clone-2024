@@ -1,65 +1,161 @@
-/* Styling for the entire header component */
+/* General Header Styles */
 .header {
-  position: sticky; /* Sticks to the top when scrolling */
+  
   top: 0;
-  width: 100%;
-  z-index: 100; /* Ensure it stays above other elements */
-  display: flex; /* Arrange child elements in a row */
-  justify-content: space-between; /* Spread content to the sides */
-  align-items: center; /* Vertically align items */
+width: 100%;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between; /* Spread items to sides */
+  align-items: center;
   padding: 20px;
-  transition: background-color 0.5s ease; /* Smooth transition for scroll effect */
-  background-color: transparent; /* Transparent background by default */
+  transition: background-color 0.5s ease;
+  background-color: transparent;
 }
 
-/* Black background when the header is scrolled */
+.header--absolute {
+  position: absolute;
+}
+
+.header--sticky {
+  position: sticky;
+}
+
 .header--black {
   background-color: black;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Styling for the Netflix logo */
+
+.header--transparent {
+  background-color: transparent; /* Maintain transparency */
+}
+
+/* Logo Styles */
 .header__logo {
-  height: 35px; /* Resize logo */
-  cursor: pointer; /* Indicate that the logo is clickable */
+  height: 35px;
+  cursor: pointer;
+  transition: transform 0.3s ease, height 0.3s ease;
 }
 
-/* Navigation menu styling */
+/* Navigation Menu */
+.header__nav {
+  display: flex;
+  justify-content: flex-start;
+  /*Alignlinkstotheleft*/align-items: center;
+  flex-grow: 1;
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.3s ease;
+  margin-left: 50px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+}
+
 .header__nav ul {
-  display: flex; /* Align links horizontally */
-  list-style: none; /* Remove default list styling */
-  gap: 20px; /* Add space between links */
+  display: flex;
+  list-style: none;
+  gap: 20px;
   margin: 0;
   padding: 0;
 }
 
-/* Individual link styling */
 .header__nav a {
-  color: #e5e5e5; /* Light gray color */
-  text-decoration: none; /* Remove underline */
-  font-weight: 500; /* Slightly bold font */
+  color: #e5e5e5;
+  text-decoration: none;
+  font-weight: 500;
+  transition: font-size 0.3s ease;
 }
 
-/* Change link color on hover */
 .header__nav a:hover {
-  color: #ffffff; /* White color */
+  color: #ffffff;
 }
 
-/* Styling for the right-side icons */
+/* Right-side Icons */
 .header__icons {
-  display: flex; /* Align icons in a row */
-  align-items: center; /* Vertically center align */
-  gap: 15px; /* Add space between icons */
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
-/* Icon-specific styling */
 .header__icon {
-  color: #e5e5e5; /* Light gray color */
-  cursor: pointer; /* Indicate clickability */
-  font-size: 30px; /* Standard icon size */
-  transition: color 0.3s ease; /* Smooth hover effect */
+  color: #e5e5e5;
+  cursor: pointer;
+  font-size: 30px;
+  transition: color 0.3s ease, font-size 0.3s ease;
 }
 
-/* Change icon color on hover */
 .header__icon:hover {
-  color: #ffffff; /* White color */
+  color: #ffffff;
+}
+
+/* Menu Icon for Mobile */
+.header__menu-icon {
+  display: none;
+  color: #e5e5e5;
+  font-size: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease, font-size 0.3s ease;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .header {
+    padding: 10px;
+  }
+
+  /* Logo shrinks proportionally */
+  .header__logo {
+    height: 25px;
+  }
+
+  /* Top-right icons remain visible and shrink */
+  .header__icons {
+    gap: 10px;
+  }
+
+  .header__icon {
+    font-size: 25px;
+  }
+
+  /* Menu Icon Display */
+  .header__menu-icon {
+    display: block;
+    font-size: 25px;
+  }
+
+  /* Hide Navigation by Default */
+  .header__nav {
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    flex-direction: column;
+    background-color: black;
+    padding: 10px;
+    border-radius: 5px;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    z-index: 100;
+  }
+
+  /* Show Navigation When Menu is Open */
+  .header__nav--open {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Navigation Links Adjusted */
+  .header__nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .header__nav a {
+    font-size: 16px;
+    font-weight: 500;
+  }
 }
