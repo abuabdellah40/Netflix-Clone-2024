@@ -1,79 +1,85 @@
-/* Container for each row */
+/* Row container */
 .row {
   margin-left: 20px;
   margin-bottom: 30px;
+}
+
+/* Row title */
+.row__title {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
   color: white;
 }
 
-/* Title of the row */
-.row__title {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-
-/* Posters container */
+/* Posters container with horizontal scroll */
 .row__posters {
   display: flex;
-  overflow-x: scroll; /* Enable horizontal scrolling */
-  overflow-y: hidden;
-  padding: 10px 0;
-  scroll-behavior: smooth;
+  overflow-x: scroll;
   gap: 10px;
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
 }
 
-/* Remove scrollbar */
 .row__posters::-webkit-scrollbar {
-  display: none;
+  display: none; /* Hide scrollbar */
 }
 
-/* Style for individual movie posters */
+/* Poster image styles */
 .row__poster {
   max-height: 120px;
-  object-fit: contain;
-  transition: transform 0.2s;
-  cursor: pointer;
   border-radius: 4px;
-}
-
-.row__poster:hover {
-  transform: scale(1.08);
-  opacity: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 .row__poster--large {
   max-height: 250px;
 }
 
-.row__trailer {
-  margin: 20px 0;
-  text-align: center;
+.row__poster:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
 }
 
-.row__trailer button {
-  background-color: #e50914;
+/* Trailer container */
+/* Trailer Container */
+.row__trailer-container {
+  position: relative;
+  margin-top: 20px;
+}
+
+/* Close Button */
+.row__close-button {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
   color: white;
   border: none;
-  padding: 10px 20px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  padding: 8px 12px;
   cursor: pointer;
-  font-size: 16px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+  z-index: 10;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-.row__trailer button:hover {
-  background-color: #f40612;
+/* Hover and Focus Effects */
+.row__close-button:hover,
+.row__close-button:focus {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: black;
+  transform: scale(1.2);
+  outline: none;
 }
 
-/* YouTube player styling */
-.row iframe {
-  margin-top: 20px;
-  border: none;
-  border-radius: 8px;
+.row__trailer-video {
+  width: 100%;
+  max-height: 450px;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
   .row__poster {
     max-height: 100px;
@@ -84,6 +90,17 @@
   }
 
   .row__title {
-    font-size: 1.2rem;
+    font-size: 1rem;
+  }
+
+.row__close-button {
+    font-size: 1rem;
+    padding: 6px 10px;
+    top: 5px;
+    right: 10px;
+  }
+
+  .row__trailer-video {
+    height: 280px;
   }
 }

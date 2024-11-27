@@ -1,40 +1,37 @@
-// Importing React and useState/useEffect for dynamic behavior
 import React, { useState, useEffect } from "react";
-
-// Importing styles and Material UI icons for the header
 import "./Header.css";
-import SearchIcon from "@mui/icons-material/Search"; // Icon for the search feature
-import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone"; // Icon for notifications
-import AccountBoxIcon from "@mui/icons-material/AccountBox"; // Icon for account/profile
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown"; // Icon for dropdown menu
-import MenuIcon from "@mui/icons-material/Menu"; // For the hamburger menu
-import CloseIcon from "@mui/icons-material/Close"; // For closing the menu
+import SearchIcon from "@mui/icons-material/Search";
+import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
+import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 
 function Header() {
-  const [isScrolled, setIsScrolled] = useState(false); // Tracks if the user has scrolled
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // State to toggle menu visibility
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Effect to listen to scroll events and update the header's background
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
-        setIsScrolled(true); // Turn background black
+        setIsScrolled(true); // Change header to sticky with black background
       } else {
-        setIsScrolled(false); // Keep background transparent
+        setIsScrolled(false); // Transparent and absolute positioning
       }
     };
 
-    window.addEventListener("scroll", handleScroll); // Attach scroll event listener
-    return () => window.removeEventListener("scroll", handleScroll); // Clean up on component unmount
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <header
       className={`header ${
-        isScrolled ? "header--sticky" : "header--absolute"
-      } ${isScrolled ? "header--black" : "header--transparent"}`}
+        isScrolled
+          ? "header--sticky header--black"
+          : "header--absolute header--transparent"
+      }`}
     >
-      {/* Menu toggle button for mobile */}
       <div
         className="header__menu-icon"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -42,14 +39,12 @@ function Header() {
         {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
       </div>
 
-      {/* Netflix logo */}
       <img
         src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
         alt="Netflix Logo"
         className="header__logo"
       />
 
-      {/* Navigation links */}
       <nav className={`header__nav ${isMenuOpen ? "header__nav--open" : ""}`}>
         <ul>
           <li>
@@ -70,14 +65,11 @@ function Header() {
         </ul>
       </nav>
 
-      {/* Right-side icons */}
       <div className="header__icons">
-        <SearchIcon className="header__icon" /> {/* Search functionality */}
-        <NotificationsNoneIcon className="header__icon" />{" "}
-        {/* Notifications feature */}
-        <AccountBoxIcon className="header__icon" />{" "}
-        {/* Profile/account settings */}
-        <ArrowDropDownIcon className="header__icon" /> {/* Dropdown menu */}
+        <SearchIcon className="header__icon" />
+        <NotificationsNoneIcon className="header__icon" />
+        <AccountBoxIcon className="header__icon" />
+        <ArrowDropDownIcon className="header__icon" />
       </div>
     </header>
   );
